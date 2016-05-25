@@ -1,4 +1,5 @@
 ﻿Imports SitosyHoteles.Models
+
 Public Class HomeController
     Inherits System.Web.Mvc.Controller
     Private db As New SitosyHotelesContext
