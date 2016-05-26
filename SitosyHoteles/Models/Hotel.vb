@@ -100,5 +100,6 @@
         End Set
     End Property
 
+    Public Overridable Property Reservas() As ICollection(Of Reserva)
 
 End Class

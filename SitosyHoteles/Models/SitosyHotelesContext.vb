@@ -17,6 +17,8 @@ Namespace Models
         End Sub
     
         Public Property Hotels As System.Data.Entity.DbSet(Of Hotel)
+        Public Property Usuarios As System.Data.Entity.DbSet(Of Usuario)
+        Public Property Reservas As System.Data.Entity.DbSet(Of Reserva)
     End Class
     
 End Namespace

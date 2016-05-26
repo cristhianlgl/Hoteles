@@ -35,6 +35,9 @@ End Code
         <th>
             @Html.DisplayNameFor(Function(model) model.Caracteristicas)
         </th>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.Imagen)
+        </th>
         <th></th>
     </tr>
 
@@ -64,6 +67,9 @@ End Code
             <td>
                 @Html.DisplayFor(Function(modelItem) item.Caracteristicas)
             </td>
+             <td>
+                 @Html.DisplayFor(Function(modelItem) item.Imagen)
+             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", New With {.id = item.Id}) |
                 @Html.ActionLink("Detalles", "Details", New With {.id = item.Id}) |

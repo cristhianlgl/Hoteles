@@ -20,7 +20,14 @@ End Code
     <b>Costo:</b>@String.Format("{0:c}", item.Costo) <br />
     <b>Clasificacion:</b>@Html.DisplayFor(Function(modelItem) item.Clasificacion)</p>
     <p>@Html.DisplayFor(Function(modelItem) item.Caracteristicas)</p>
-    <p><a class="btn btn-info" href='@Url.Action("Details", "Hotels", New With {.id = item.Id})'>Detalles &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-6">
+            <p><a class="btn btn-info" href='@Url.Action("Details", "Hotels", New With {.id = item.Id})'>Detalles &raquo;</a></p>
+        </div>
+        <div class="col-md-6">
+            <p><a class="btn btn-success" href='@Url.Action("Create", "Reservas", New With {.id = item.Id})'>Reservar &raquo;</a></p>
+        </div>
+    </div>
     </div>
 Next
 </div>

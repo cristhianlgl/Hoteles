@@ -1,57 +1,38 @@
 ﻿Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
+Imports System.Data.Entity.Spatial
 
 Public Class Reserva
 
-    Private miID As Integer
     Public Property Id() As Integer
-        Get
-            Return miID
-        End Get
-        Set(ByVal value As Integer)
-            miID = value
-        End Set
-    End Property
 
-
-    Private miUsuario As List(Of Usuario)
-    Public Property Usuario() As List(Of Usuario)
-        Get
-            Return miUsuario
-        End Get
-        Set(ByVal value As List(Of Usuario))
-            miUsuario = value
-        End Set
-    End Property
-
-    Private miHotel As List(Of Hotel)
-    Public Property Hotel() As List(Of Hotel)
-        Get
-            Return miHotel
-        End Get
-        Set(ByVal value As List(Of Hotel))
-            miHotel = value
-        End Set
-    End Property
-
-    Private miHabitacion As Integer
+    <Required(ErrorMessage:="Digite el numero de Habitacion")>
     Public Property Habitacion() As Integer
-        Get
-            Return miHabitacion
-        End Get
-        Set(ByVal value As Integer)
-            miHabitacion = value
-        End Set
-    End Property
 
-    Private miCosto As Double
     Public Property Costo() As Double
-        Get
-            Return miCosto
-        End Get
-        Set(ByVal value As Double)
-            miCosto = value
-        End Set
-    End Property
+
+    <Required(ErrorMessage:="Debe Especificar la Fecha Inical de la Reserva")>
+    <Column(TypeName:="date")>
+    <Display(Name:="Fecha Inicial")>
+    <DisplayFormat(DataFormatString:="{0:dd-MM-yyyy}", ApplyFormatInEditMode:=True)>
+    Public Property FechaInicio As Date
+
+    <Required(ErrorMessage:="Debe Especificar la Fecha Final de la Reserva")>
+    <Column(TypeName:="date")>
+    <Display(Name:="Fecha Final")>
+    <DisplayFormat(DataFormatString:="{0:dd-MM-yyyy}", ApplyFormatInEditMode:=True)>
+    Public Property FechaFin As Date
+
+    <ForeignKey("LLaveUsuario")>
+    <Display(Name:="Usuario")>
+    Public Property UusarioId() As Integer
+    Public Overridable Property LLaveUsuario() As Usuario
+
+    <ForeignKey("LLaveHotel")>
+    <Display(Name:="Hotel")>
+    Public Property HotelId() As Integer
+    Public Overridable Property LLaveHotel() As Hotel
 
 End Class

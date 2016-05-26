@@ -42,7 +42,7 @@ Namespace Controllers
         'más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas")> ByVal hotel As Hotel) As ActionResult
+        Function Create(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas,Imagen")> ByVal hotel As Hotel) As ActionResult
             If ModelState.IsValid Then
                 db.Hotels.Add(hotel)
                 db.SaveChanges()
@@ -68,7 +68,7 @@ Namespace Controllers
         'más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas")> ByVal hotel As Hotel) As ActionResult
+        Function Edit(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas,Imagen")> ByVal hotel As Hotel) As ActionResult
             If ModelState.IsValid Then
                 db.Entry(hotel).State = EntityState.Modified
                 db.SaveChanges()

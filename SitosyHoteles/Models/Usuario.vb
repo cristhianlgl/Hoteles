@@ -1,69 +1,39 @@
-﻿Imports System.ComponentModel.DataAnnotations
+﻿Imports System
+Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
+Imports System.Data.Entity.Spatial
 
 Public Class Usuario
 
     <Key>
-    Private miIdentificacion As Integer
-    Public Property Identificacion() As Integer
+    <DatabaseGenerated(DatabaseGeneratedOption.None)>
+    Public Property Identificacion As Integer
+
+    <Required(ErrorMessage:="El Nombre es un campo Obligatorio ")>
+    <StringLength(60)>
+    Public Property Nombres As String
+
+    <Required(ErrorMessage:="Los Apellidos son un campo Obligatorio ")>
+    <StringLength(60)>
+    Public Property Apellidos As String
+
+    <Display(Name:="Nombre Completo")>
+    Public ReadOnly Property NombreCompleto() As String
         Get
-            Return miIdentificacion
+            Return Nombres + " " + Apellidos
         End Get
-        Set(ByVal value As Integer)
-            miIdentificacion = value
-        End Set
     End Property
 
-    <Required>
-    Private misNombres As String
-    Public Property Nombres() As String
-        Get
-            Return misNombres
-        End Get
-        Set(ByVal value As String)
-            misNombres = value
-        End Set
-    End Property
+    <Column(TypeName:="date")>
+    <Display(Name:="Fecha de Naciemiento")>
+    <DisplayFormat(DataFormatString:="{0:dd-MM-yyyy}", ApplyFormatInEditMode:=True)>
+    Public Property FechaNacimiento As Date?
 
-    <Required>
-    Private misApellidos As String
-    Public Property Apellidos() As String
-        Get
-            Return misApellidos
-        End Get
-        Set(ByVal value As String)
-            misApellidos = value
-        End Set
-    End Property
-
-    Private miFechaNacimiento As DateTime
-    Public Property FechaNacimiento() As DateTime
-        Get
-            Return miFechaNacimiento
-        End Get
-        Set(ByVal value As DateTime)
-            miFechaNacimiento = value
-        End Set
-    End Property
-
-    Private miDireccion As String
     Public Property Direccion() As String
-        Get
-            Return miDireccion
-        End Get
-        Set(ByVal value As String)
-            miDireccion = value
-        End Set
-    End Property
 
-    Private miTelefono As String
     Public Property Telefono() As String
-        Get
-            Return miTelefono
-        End Get
-        Set(ByVal value As String)
-            miTelefono = value
-        End Set
-    End Property
 
+    Public Overridable Property Reservas() As ICollection(Of Reserva)
 
 End Class
