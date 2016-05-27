@@ -73,6 +73,7 @@ Namespace Controllers
             If IsNothing(hotel) Then
                 Return HttpNotFound()
             End If
+            ViewBag.Imagen = hotel.Imagen
             Return View(hotel)
         End Function
 

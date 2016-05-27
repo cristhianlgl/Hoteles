@@ -79,7 +79,7 @@ End Code
          <div class="form-group">
              @Html.LabelFor(Function(model) model.Imagen, htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
-                 <input name="Image" type="file" class="form-control" />
+                 <input name="Image" type="file" class="form-control" value=ViewBag.Imagen />
                  @Html.ValidationMessageFor(Function(model) model.Imagen, "", New With {.class = "text-danger"})
              </div>
          </div>
