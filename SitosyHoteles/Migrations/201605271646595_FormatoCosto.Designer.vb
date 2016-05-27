@@ -5,15 +5,15 @@ Imports System.Data.Entity.Migrations.Infrastructure
 Imports System.Resources
 
 Namespace Migrations
-    <GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")>
-    Public NotInheritable Partial Class addImagen
+    <GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")>
+    Public NotInheritable Partial Class FormatoCosto
         Implements IMigrationMetadata
     
-        Private ReadOnly Resources As New ResourceManager(GetType(addImagen))
+        Private ReadOnly Resources As New ResourceManager(GetType(FormatoCosto))
         
         Private ReadOnly Property IMigrationMetadata_Id() As String Implements IMigrationMetadata.Id
             Get
-                Return "201605201455307_addImagen"
+                Return "201605271646595_FormatoCosto"
             End Get
         End Property
         

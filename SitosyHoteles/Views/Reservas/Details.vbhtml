@@ -1,16 +1,15 @@
 ﻿@ModelType SitosyHoteles.Reserva
 @Code
-    ViewData("Title") = "Details"
+    ViewData("Title") = "Detalles"
 End Code
 
-<h2>Details</h2>
+<h2>Detalles de la Reservacion</h2>
 
 <div>
-    <h4>Reserva</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.LLaveHotel.Nombre)
+            Hotel
         </dt>
 
         <dd>
@@ -18,7 +17,7 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.LLaveUsuario.Nombres)
+           Usuario 
         </dt>
 
         <dd>
@@ -60,6 +59,5 @@ End Code
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", New With { .id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+     @Html.ActionLink("Volver al Listado", "Index")
 </p>

@@ -32,6 +32,7 @@ Namespace Controllers
             Return View(hotel)
         End Function
 
+
         ' GET: Hotels/Create
         Function Create() As ActionResult
             Return View()
@@ -41,15 +42,27 @@ Namespace Controllers
         'Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         'más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
-        <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas,Imagen")> ByVal hotel As Hotel) As ActionResult
+        Function Create(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas,Imagen")> ByVal hotel As Hotel, image As HttpPostedFileBase) As ActionResult
             If ModelState.IsValid Then
+                If image IsNot Nothing Then
+                    hotel.Imagen = image.FileName
+                    image.SaveAs(Server.MapPath("~/Img/" + image.FileName))
+                End If
                 db.Hotels.Add(hotel)
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
             Return View(hotel)
         End Function
+
+        'Public Function GetThumbnailImage(IdHotel As Integer) As FileContentResult
+        '    Dim hotel As Hotel = db.Hotels.FirstOrDefault(Function(p) p.Id = IdHotel)
+        '    If hotel IsNot Nothing Then
+        '        Return File(art.ArtworkThumbnail, art.ImageMimeType.ToString())
+        '    Else
+        '        Return Nothing
+        '    End If
+        'End Function
 
         ' GET: Hotels/Edit/5
         Function Edit(ByVal id As Integer?) As ActionResult
@@ -67,9 +80,12 @@ Namespace Controllers
         'Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         'más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         <HttpPost()>
-        <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas,Imagen")> ByVal hotel As Hotel) As ActionResult
+        Function Edit(<Bind(Include:="Id,Nombre,Pais,Costo,Lugar,Especialidad,Idioma,Clasificacion,Caracteristicas,Imagen")> ByVal hotel As Hotel, image As HttpPostedFileBase) As ActionResult
             If ModelState.IsValid Then
+                If image IsNot Nothing Then
+                    hotel.Imagen = image.FileName
+                    image.SaveAs(Server.MapPath("~/Img/" + image.FileName))
+                End If
                 db.Entry(hotel).State = EntityState.Modified
                 db.SaveChanges()
                 Return RedirectToAction("Index")

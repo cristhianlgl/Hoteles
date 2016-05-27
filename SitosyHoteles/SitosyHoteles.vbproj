@@ -148,33 +148,20 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
-    <Compile Include="Controllers\Hotels1Controller.vb" />
     <Compile Include="Controllers\HotelsController.vb" />
     <Compile Include="Controllers\ReservasController.vb" />
     <Compile Include="Controllers\UsuariosController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605162127153_InitialCreate.Designer.vb">
-      <DependentUpon>201605162127153_InitialCreate.vb</DependentUpon>
+    <Compile Include="Migrations\201605271413015_Inicial.Designer.vb">
+      <DependentUpon>201605271413015_Inicial.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605162127153_InitialCreate.vb" />
-    <Compile Include="Migrations\201605201455307_addImagen.Designer.vb">
-      <DependentUpon>201605201455307_addImagen.vb</DependentUpon>
+    <Compile Include="Migrations\201605271413015_Inicial.vb" />
+    <Compile Include="Migrations\201605271646595_FormatoCosto.Designer.vb">
+      <DependentUpon>201605271646595_FormatoCosto.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605201455307_addImagen.vb" />
-    <Compile Include="Migrations\201605261520569_ReservaUsuario.Designer.vb">
-      <DependentUpon>201605261520569_ReservaUsuario.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605261520569_ReservaUsuario.vb" />
-    <Compile Include="Migrations\201605262041368_LLavesForaneas.Designer.vb">
-      <DependentUpon>201605262041368_LLavesForaneas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605262041368_LLavesForaneas.vb" />
-    <Compile Include="Migrations\201605262121539_FechasDeReserva.Designer.vb">
-      <DependentUpon>201605262121539_FechasDeReserva.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605262121539_FechasDeReserva.vb" />
+    <Compile Include="Migrations\201605271646595_FormatoCosto.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\Hotel.vb" />
     <Compile Include="Models\Reserva.vb" />
@@ -198,20 +185,11 @@
     <Compile Include="Controllers\HomeController.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605162127153_InitialCreate.resx">
-      <DependentUpon>201605162127153_InitialCreate.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605271413015_Inicial.resx">
+      <DependentUpon>201605271413015_Inicial.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605201455307_addImagen.resx">
-      <DependentUpon>201605201455307_addImagen.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605261520569_ReservaUsuario.resx">
-      <DependentUpon>201605261520569_ReservaUsuario.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605262041368_LLavesForaneas.resx">
-      <DependentUpon>201605262041368_LLavesForaneas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605262121539_FechasDeReserva.resx">
-      <DependentUpon>201605262121539_FechasDeReserva.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605271646595_FormatoCosto.resx">
+      <DependentUpon>201605271646595_FormatoCosto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -273,13 +251,7 @@
     <Content Include="Views\Reservas\Create.vbhtml" />
     <Content Include="Views\Reservas\Delete.vbhtml" />
     <Content Include="Views\Reservas\Details.vbhtml" />
-    <Content Include="Views\Reservas\Edit.vbhtml" />
     <Content Include="Views\Reservas\Index.vbhtml" />
-    <Content Include="Views\Hotels1\Create.vbhtml" />
-    <Content Include="Views\Hotels1\Delete.vbhtml" />
-    <Content Include="Views\Hotels1\Details.vbhtml" />
-    <Content Include="Views\Hotels1\Edit.vbhtml" />
-    <Content Include="Views\Hotels1\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

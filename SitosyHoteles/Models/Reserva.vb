@@ -11,19 +11,20 @@ Public Class Reserva
     <Required(ErrorMessage:="Digite el numero de Habitacion")>
     Public Property Habitacion() As Integer
 
+    <DisplayFormat(DataFormatString:="{0:C}")>
     Public Property Costo() As Double
 
     <Required(ErrorMessage:="Debe Especificar la Fecha Inical de la Reserva")>
-    <Column(TypeName:="date")>
+    <DataType(DataType.Date)>
     <Display(Name:="Fecha Inicial")>
     <DisplayFormat(DataFormatString:="{0:dd-MM-yyyy}", ApplyFormatInEditMode:=True)>
-    Public Property FechaInicio As Date
+    Public Property FechaInicio As DateTime?
 
     <Required(ErrorMessage:="Debe Especificar la Fecha Final de la Reserva")>
-    <Column(TypeName:="date")>
+    <DataType(DataType.Date)>
     <Display(Name:="Fecha Final")>
     <DisplayFormat(DataFormatString:="{0:dd-MM-yyyy}", ApplyFormatInEditMode:=True)>
-    Public Property FechaFin As Date
+    Public Property FechaFin As DateTime?
 
     <ForeignKey("LLaveUsuario")>
     <Display(Name:="Usuario")>

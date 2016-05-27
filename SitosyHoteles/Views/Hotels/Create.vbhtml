@@ -5,8 +5,7 @@ End Code
 
 <h2>Crear Hotel</h2>
 
-@Using (Html.BeginForm()) 
-    @Html.AntiForgeryToken()
+@Using (Html.BeginForm("Create", "Hotels", FormMethod.Post, New With {.enctype = "multipart/form-data"}))
     
     @<div class="form-horizontal">
         <hr />
@@ -78,7 +77,7 @@ End Code
          <div class="form-group">
              @Html.LabelFor(Function(model) model.Imagen, htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
-                 @Html.EditorFor(Function(model) model.Imagen, New With {.htmlAttributes = New With {.class = "form-control"}})
+                 <input name="Image" type="file" class="form-control" />
                  @Html.ValidationMessageFor(Function(model) model.Imagen, "", New With {.class = "text-danger"})
              </div>
          </div>

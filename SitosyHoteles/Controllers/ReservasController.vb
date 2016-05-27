@@ -65,36 +65,6 @@ Namespace Controllers
             Return View(reserva)
         End Function
 
-        ' GET: Reservas/Edit/5
-        Function Edit(ByVal id As Integer?) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim reserva As Reserva = db.Reservas.Find(id)
-            If IsNothing(reserva) Then
-                Return HttpNotFound()
-            End If
-            ViewBag.HotelId = New SelectList(db.Hotels, "Id", "Nombre", reserva.HotelId)
-            ViewBag.UusarioId = New SelectList(db.Usuarios, "Identificacion", "Nombres", reserva.UusarioId)
-            Return View(reserva)
-        End Function
-
-        ' POST: Reservas/Edit/5
-        'Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        'más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
-        <HttpPost()>
-        <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="Id,Habitacion,Costo,FechaInicio,FechaFin,UusarioId,HotelId")> ByVal reserva As Reserva) As ActionResult
-            If ModelState.IsValid Then
-                db.Entry(reserva).State = EntityState.Modified
-                db.SaveChanges()
-                Return RedirectToAction("Index")
-            End If
-            ViewBag.HotelId = New SelectList(db.Hotels, "Id", "Nombre", reserva.HotelId)
-            ViewBag.UusarioId = New SelectList(db.Usuarios, "Identificacion", "Nombres", reserva.UusarioId)
-            Return View(reserva)
-        End Function
-
         ' GET: Reservas/Delete/5
         Function Delete(ByVal id As Integer?) As ActionResult
             If IsNothing(id) Then

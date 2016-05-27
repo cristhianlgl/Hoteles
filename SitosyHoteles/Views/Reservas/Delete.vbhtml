@@ -1,17 +1,16 @@
 ﻿@ModelType SitosyHoteles.Reserva
 @Code
-    ViewData("Title") = "Delete"
+    ViewData("Title") = "Eliminar"
 End Code
 
-<h2>Delete</h2>
+<h2>Eliminar Reservacion</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Esta Seguro que desea Eliminar esta Reservacion?</h3>
 <div>
-    <h4>Reserva</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal ">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.LLaveHotel.Nombre)
+            Hotel
         </dt>
 
         <dd>
@@ -19,7 +18,7 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.LLaveUsuario.Nombres)
+            Usuario
         </dt>
 
         <dd>
@@ -63,8 +62,8 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver al Listado", "Index")
         </div>
     End Using
 </div>

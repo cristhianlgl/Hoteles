@@ -1,15 +1,16 @@
 ﻿@ModelType SitosyHoteles.Reserva
 @Code
-    ViewData("Title") = "Create"
+    ViewData("Title") = "Reservar"
+    Dim miCostoHotel As Double
+    miCostoHotel = ViewBag.Costo
 End Code
 
-<h2>Create</h2>
+<h2>Hacer Reservacion</h2>
 
 @Using (Html.BeginForm()) 
     @Html.AntiForgeryToken()
     
     @<div class="form-horizontal">
-        <h4>Reserva</h4>
         <hr />
         @Html.ValidationSummary(True, "", New With { .class = "text-danger" })
         <div class="form-group">
@@ -21,17 +22,17 @@ End Code
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.Costo, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.Costo, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.Costo, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.Costo, "", New With { .class = "text-danger" })
+                @Html.EditorFor(Function(model) model.Costo, New With {.htmlAttributes = New With {.class = "form-control", .Value = miCostoHotel, .readonly = "readonly"}})
+                @Html.ValidationMessageFor(Function(model) model.Costo, "", New With {.class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.FechaInicio, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.FechaInicio, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.FechaInicio, New With {.htmlAttributes = New With {.class = "form-control"}})
                 @Html.ValidationMessageFor(Function(model) model.FechaInicio, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -39,7 +40,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.FechaFin, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.FechaFin, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.FechaFin, New With {.htmlAttributes = New With {.class = "form-control"}})
                 @Html.ValidationMessageFor(Function(model) model.FechaFin, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -62,14 +63,14 @@ End Code
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Realizar Reservacion" class="btn btn-success" />
             </div>
         </div>
     </div>
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a Listado de Hoteles", "../") | @Html.ActionLink("Ver listado de Reservaciones", "Index")
 </div>
 
 @Section Scripts 

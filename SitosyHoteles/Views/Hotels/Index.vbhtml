@@ -12,7 +12,7 @@ End Code
 <table class="table  table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.Nombre)
+            Hotel
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.Pais)

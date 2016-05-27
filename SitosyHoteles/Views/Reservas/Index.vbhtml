@@ -1,20 +1,17 @@
 ﻿@ModelType IEnumerable(Of SitosyHoteles.Reserva)
 @Code
-ViewData("Title") = "Index"
+ViewData("Title") = "Reservaciones"
 End Code
 
-<h2>Index</h2>
+<h2>Listado de Resercaciones</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.LLaveHotel.Nombre)
+            Hotel
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.LLaveUsuario.Nombres)
+            Usuario
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.Habitacion)
@@ -31,32 +28,31 @@ End Code
         <th></th>
     </tr>
 
-@For Each item In Model
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.LLaveHotel.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.LLaveUsuario.Nombres)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Habitacion)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.Costo)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.FechaInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.FechaFin)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.Id }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.Id })
-        </td>
-    </tr>
-Next
+    @For Each item In Model
+        @<tr>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.LLaveHotel.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.LLaveUsuario.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.Habitacion)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.Costo, New With {.woCurrency = True})
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.FechaFin)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "Details", New With {.id = item.Id}) |
+                @Html.ActionLink("Eliminar", "Delete", New With {.id = item.Id})
+            </td>
+        </tr>
+    Next
 
 </table>

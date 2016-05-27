@@ -25,10 +25,10 @@ Public Class Usuario
         End Get
     End Property
 
-    <Column(TypeName:="date")>
+    <DataType(DataType.Date)>
     <Display(Name:="Fecha de Naciemiento")>
     <DisplayFormat(DataFormatString:="{0:dd-MM-yyyy}", ApplyFormatInEditMode:=True)>
-    Public Property FechaNacimiento As Date?
+    Public Property FechaNacimiento As DateTime?
 
     Public Property Direccion() As String
 

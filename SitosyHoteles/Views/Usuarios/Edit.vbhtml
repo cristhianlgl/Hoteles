@@ -32,7 +32,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.FechaNacimiento, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.FechaNacimiento, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.FechaNacimiento, New With {.htmlAttributes = New With {.class = "form-control", .Value = Model.FechaNacimiento}})
                 @Html.ValidationMessageFor(Function(model) model.FechaNacimiento, "", New With { .class = "text-danger" })
             </div>
         </div>
